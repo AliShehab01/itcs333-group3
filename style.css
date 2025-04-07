@@ -1,81 +1,14 @@
-body {
-    /*till line 57 should include in all sides, they are common area (header)  */
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-#search {
-    width: 250px;
-    display: flex;
-}
-
-#filter {
-    width: 250px;
-    display: flex;
-
-}
-
-
-#logo {
-    width: 120px;
-    display: flex;
-}
-
-header {
-    position: relative;
-    background-color: #18358b;
-    background-image: url('images/UoBcampus.jpg');
+#backgroundImg {
+    background-image: url('/images/UoBcampus.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    color: #fff;
+    color: #f6f6f7;
+    font-family: bold;
     padding: 2rem 1rem;
     text-align: center;
 }
 
-nav a {
-    color: #ffffff;
-    /* White text for better contrast */
-    font-size: 1.2rem;
+#firsth1 {
+    font-size: 60px;
     font-weight: bold;
-    margin: 0 1rem;
-    text-decoration: none;
-    padding: 0.5rem;
-    display: inline-block;
-    transition: all 0.3s ease;
-    /* Smooth transition for hover effects */
-}
-
-nav a:hover {
-    color: #18358b;
-    /* Change text color to blue on hover */
-    background-color: rgba(255, 255, 255, 0.7);
-    /* Light background on hover */
-    border-radius: 10px;
-    /* Optional: Round the corners for a smooth look */
-}
-
-h2 {
-    color: #ffffff;
-    /* Ensure the text remains white */
-    font-weight: 5000;
-    ;
-    font-size: 1.rem;
-    /* Adjust the font size if necessary */
-    margin-top: 3rem;
-}
-
-#main1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 50px 100px;
-    border-bottom: 4px solid #222;
-
-}
-
-.container {
-    background-color: #222;
 }
