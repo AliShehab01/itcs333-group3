@@ -43,4 +43,4 @@
 <tbody>
 </tbody>
 </table>
-
+We use Bootstrap as a CSS framework, The code of main page is inside (module2) branch in a folder named (mainPage)
