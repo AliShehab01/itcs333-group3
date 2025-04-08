@@ -5,10 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Hub - Main Page</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         crossorigin="anonymous" />
-
     <link rel="stylesheet" href="sgf_style.css" />
 </head>
 
@@ -16,7 +14,7 @@
     <main>
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/index.html">
                     <img src="/images/logo2.png" alt="Campus Hub Logo" style="height: 50px;" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -46,32 +44,75 @@
             </div>
         </section>
 
-        <section class="container my-5">
-            <div class="row">
-                <div class="col-md-8 mb-2">
-                    <input type="search" class="form-control" placeholder="Search for study groups, courses, events..."
-                        id="search">
+
+
+        <section class="container mt-5">
+            <div class="row align-items-start">
+                <!-- Left column -->
+                <div class="col-md-5">
+                    <h3 class="fw-bold text-dark" id="mov1">Looking for a study group? This is your right place
+                        for
+                        that!</h3>
                 </div>
-                <div class="col-md-4 mb-2">
-                    <select class="form-control" id="filter">
-                        <option>Filter by...</option>
-                        <option>Study Groups</option>
-                        <option>Events</option>
-                        <option>Course Reviews</option>
-                    </select>
+
+                <!-- Divider -->
+                <div class="col-md-1 d-flex justify-content-center">
+                    <div style="width: 1px; height: 100%; background-color: #ccc;"></div>
+                </div>
+
+                <!-- Right column -->
+                <div class="col-md-6">
+                    <p class="text-muted">Create or join a study group that fits your needs — subject, level,
+                        and more.
+                    </p>
                 </div>
             </div>
+        </section> <!--Search side-->
+        <section class="container mt-5">
+            <div class="col-md-8">
+                <input type="search" class="form-control form-control-lg" id="searchInput"
+                    placeholder="🔍Type subject id and the section, e.g.: ITCS333 3">
+            </div>
+
         </section>
 
-
         <section class="container mt-5"> <!--your main work on module is in this part -->
-            <div id="right">
-                <h1>looking for a study group? this is your right place for that!</h1>
-            </div>
-            <div id="left">
-                <p>create or join to a study group that have your need... subject, level, and more</p>
-            </div>
-
+            <!-- Add Group Form -->
+            <div class="card  p-4 mb-5">
+                <h5 class="mb-3">Add a New Study Group</h5>
+                <form id="groupForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Subject Code</label>
+                            <input required type="text" id="subject" class="form-control" placeholder="ITCS333" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="section">Section</label>
+                            <input required type="text" id="section" class="form-control" placeholder="3" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="college">College</label>
+                            <select required id="college" class="form-control">
+                                <option disabled selected value="">Select College</option>
+                                <option>College of Information Technology</option>
+                                <option>College of Applied Studies</option>
+                                <option>College of Arts</option>
+                                <option>Bahrain Teachers College</option>
+                                <option>College of Business</option>
+                                <option>College of Engineering</option>
+                                <option>College of Health and Sport Sciences</option>
+                                <option>College of Science</option>
+                                <option>College of Law</option>
+                            </select>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Group Link</label>
+                        <input required type="url" class="form-control" placeholder="https://chat.whatsapp.com/..." />
+                    </div>
+                    <button type="submit" id="btn">Add Group</button>
+                </form>
         </section>
 
 
