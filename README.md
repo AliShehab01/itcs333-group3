@@ -2,30 +2,45 @@
 <table>
 <thead>
 <tr>
-<th>Module</th>
+<th>GithubUsername</th>
 <th>Student</th>
+<th>Id</th>
+<th>Module</th>
+
 </tr>
 </thead>
-<tbody>
 <tr>
-<td>Study Group Finder</td>
 <td>Ali Abdulbaqi</td>
+<td>AliShehab01</td>
+<td>202207619</td>
+<td>Study Group Finder</td>
+</tr>
 </tr>
 <tr>
-<td>Module Name</td>
-<td>Null</td>
+<td>Type your name</td>
+<td>Type your github userName</td>
+<td>Type your id number</td>
+<td>Type Module Name</td>
 </tr>
 <tr>
-<td>Module Name</td>
-<td>Null</td>
+<td>Type your name</td>
+<td>Type your github userName</td>
+<td>Type your id number</td>
+<td>Type Module Name</td>
 </tr>
 <tr>
-<td>Module Name</td>
-<td>Null</td>
+<td>Type your name</td>
+<td>Type your github userName</td>
+<td>Type your id number</td>
+<td>Type Module Name</td>
 </tr>
 <tr>
-<td>Module Name</td>
-<td>Null</td>
+<td>Type your name</td>
+<td>Type your github userName</td>
+<td>Type your id number</td>
+<td>Type Module Name</td>
 </tr>
+<tbody>
 </tbody>
 </table>
+
