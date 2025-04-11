@@ -24,10 +24,10 @@
 </td>
 </tr>
 <tr>
-<td>Type your name</td>
-<td>Type your github userName</td>
-<td>Type your id number</td>
-<td>Type Module Name</td>
+<td>Isa Ebrahim Mohammed Alalwan</td>
+<td>Essa-alalwan</td>
+<td>202209467</td>
+<td>course reviews</td>
 </tr>
 <tr>
 <td>Type your name</td>
