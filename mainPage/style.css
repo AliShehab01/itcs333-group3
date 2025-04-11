@@ -1,5 +1,5 @@
 #backgroundImg {
-    background-image: url('images/UoBcampus.jpg');
+    background-image: url('/images/UoBcampus.jpg');
     background-size: cover;
     background-position: center;
     color: #f6f6f7;
