@@ -12,3 +12,40 @@
     font-size: 60px;
     font-weight: bold;
 }
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    height: 400px;
+    object-fit: cover;
+}
+
+button {
+    margin-top: 10px;
+    
+}
+
+h2 {
+    color: #0056b3;
+}
+
+.card-body p {
+    font-size: 14px;
+}
+
+form label {
+    font-weight: bold;
+}  
