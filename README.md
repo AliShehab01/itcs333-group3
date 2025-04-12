@@ -39,7 +39,7 @@
 <td>Ali Hasan Juma Khalaf</td>
 <td>AliHasanJuma</td>
 <td>202209454</td>
-<td>Type Module Name</td>
+<td>Campus News</td>
 </tr>
 <tbody>
 </tbody>
