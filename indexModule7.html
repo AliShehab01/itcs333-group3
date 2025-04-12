@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Campus Hub - Main Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    
+    <body>
+        <main>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px;" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                            <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Course Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    
+            <section id="backgroundImg">
+                <div class="container">
+                    <h1 id="firsth1">Welcome to Campus Hub</h1>
+                    <p class="lead">
+                        Your one-stop platform for events, study groups, course reviews & more at University of Bahrain!
+                    </p>
+                </div>
+            </section>
+         <div class="container mt-5">
+            <div class="row">
+                <!-- Marketplace Header -->
+                <div class="col-md-12 mb-4">
+                    <h2 class="text-center"><Strong>Student Marketplace</Strong></h2>
+                    <p class="text-center">Buy and sell textbooks and course materials!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Marketplace Cards -->
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <img src="images/Calculus.jpeg" class="card-img-top" alt="MATHS101 Book Image">
+                        <div class="card-body">
+                            <h5 class="card-title"> <strong>MATHS101:</strong> Calculus Textbook</h5>
+                            <p class="card-text"><strong>$30</strong> - Good condition, pickup on campus</p>
+                            <a href="tel:34567890" class="btn btn-primary">Contact Seller</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <img src="images/ITCS333book.jpg" class="card-img-top" alt="ITCS333 Book Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>ITCS333:</strong> Fundamentals of Web Development</h5>
+                            <p class="card-text"><strong>$15</strong> - Slightly used, free delivery</p>
+                            <a href="tel:34567891" class="btn btn-primary">Contact Seller</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <img src="images/Java1.jpg" class="card-img-top" alt="ITCS113 Book Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>ITCS113/106:</strong> Java 1 book</h5>
+                            <p class="card-text"><strong>$10</strong> - used, fast delivery</p>
+                            <a href="tel:34567892" class="btn btn-primary">Contact Seller</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="container my-5">
+                    <h4 class="text-center"><strong>Add a New Listing:</strong></h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Book Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="e.g. Calculus" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price in $</label>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="e.g. 25" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Condition, pickup location, etc." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Book Image URL</label>
+                            <input type="text" class="form-control" id="image" name="image" placeholder="Paste image link here (e.g. https://...)" required>
+                        </div>
+                        <button type="submit" class="btn btn-success" disabled>Submit</button>
+                    </form>
+                </div>                   
+            </div>
+        </main>
+<!-- Footer -->
+        <footer class="bg-dark text-light pt-5 pb-3">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 mb-4">
+                        <h5>About</h5>
+                        <p>Your go-to student platform at UOB — for everything from study groups to campus events.</p>
+                    </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.uob.edu.bh/events/" class="text-light">Events</a></li>
+                        <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="studentcc@uob.edu.bh" class="text-light">Email Us</a></li>
+                        <li><a href="tel:+17438888" class="text-light">Call Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5>Follow</h5>
+                    <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light">Instagram</a>
+                    <a href="https://x.com/uobedubh?lang=en" class="d-block text-light">X (Twitter)</a>
+                    <a href="https://www.facebook.com/MyUOB/" class="d-block text-light">Facebook</a>
+                </div>
+                </div>
+                <hr class="bg-light" />
+                <div class="text-center">
+                    <small>&copy; 2025 UOB Campus Hub. All rights reserved.</small>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
