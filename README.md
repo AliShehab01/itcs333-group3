@@ -36,9 +36,9 @@
 <td>Student Marketplace</td>
 </tr>
 <tr>
-<td>Type your name</td>
-<td>Type your github userName</td>
-<td>Type your id number</td>
+<td>Ali Hasan Juma Khalaf</td>
+<td>AliHasanJuma</td>
+<td>202209454</td>
 <td>Type Module Name</td>
 </tr>
 <tbody>
