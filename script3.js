@@ -67,3 +67,75 @@ function displayReviews(page = 1) {
   updatePaginationControls();
 }
 
+// Search functionality
+function setupSearch() {
+  const searchInput = document.createElement("input");
+  searchInput.className = "form-control mb-4";
+  searchInput.placeholder = "Search by course or professor...";
+
+  const container = document.querySelector(".container.mt-5");
+  container.insertBefore(searchInput, container.children[1]);
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const filtered = reviews.filter(r =>
+      r.courseName.toLowerCase().includes(query) ||
+      r.professorName.toLowerCase().includes(query)
+    );
+    displayFilteredReviews(filtered);
+  });
+}
+
+function displayFilteredReviews(filteredReviews) {
+  const reviewsContainer = document.querySelector(".row");
+  reviewsContainer.innerHTML = "";
+
+  if (filteredReviews.length === 0) {
+    reviewsContainer.innerHTML = '<div class="text-center w-100">No matching reviews found.</div>';
+    return;
+  }
+
+  filteredReviews.forEach(review => {
+    const card = document.createElement("div");
+    card.className = "col-md-4 mb-4";
+    card.innerHTML = `
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">${review.courseName}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Professor: ${review.professorName}</h6>
+          <p class="card-text">${review.reviewText}</p>
+          <span class="badge badge-primary mb-2">Rating: ${review.rating}</span>
+          <span class="badge badge-secondary mb-2">${review.semester}</span>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <small class="text-muted">Submitted: ${review.date}</small>
+          </div>
+        </div>
+      </div>
+    `;
+    reviewsContainer.appendChild(card);
+  });
+}
+
+// Sorting functionality
+function setupSort() {
+  const sortSelect = document.createElement("select");
+  sortSelect.className = "form-control mb-4";
+  sortSelect.innerHTML = `
+    <option value="">Sort by...</option>
+    <option value="high">Highest Rating</option>
+    <option value="low">Lowest Rating</option>
+  `;
+
+  const container = document.querySelector(".container.mt-5");
+  container.insertBefore(sortSelect, container.children[2]);
+
+  sortSelect.addEventListener("change", function () {
+    if (this.value === "high") {
+      reviews.sort((a, b) => b.rating - a.rating);
+    } else if (this.value === "low") {
+      reviews.sort((a, b) => a.rating - b.rating);
+    }
+    displayReviews(1);
+  });
+}
+
