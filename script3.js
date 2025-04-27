@@ -139,3 +139,68 @@ function setupSort() {
   });
 }
 
+// Pagination controls
+function updatePaginationControls() {
+  const pagination = document.querySelector(".pagination");
+  const totalPages = Math.ceil(reviews.length / itemsPerPage);
+
+  pagination.innerHTML = `
+    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+      <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Previous</a>
+    </li>
+    ${Array.from({ length: totalPages }, (_, i) => `
+      <li class="page-item ${i + 1 === currentPage ? 'active' : ''}">
+        <a class="page-link" href="#" onclick="changePage(${i + 1})">${i + 1}</a>
+      </li>
+    `).join('')}
+    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+      <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Next</a>
+    </li>
+  `;
+}
+
+function changePage(page) {
+  if (page < 1 || page > Math.ceil(reviews.length / itemsPerPage)) return;
+  currentPage = page;
+  displayReviews(page);
+}
+
+// Form validation for submission
+function setupFormValidation() {
+  const form = document.getElementById("reviewForm");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const courseName = document.getElementById("courseName").value.trim();
+    const professorName = document.getElementById("professorName").value.trim();
+    const rating = document.getElementById("rating").value;
+    const semester = document.getElementById("semester").value.trim();
+    const reviewText = document.getElementById("reviewText").value.trim();
+
+    if (!courseName || !professorName || !rating || !semester || !reviewText) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+
+    const newReview = {
+      courseName,
+      professorName,
+      rating: Number(rating),
+      semester,
+      reviewText,
+      date: new Date().toLocaleDateString()
+    };
+
+    reviews.unshift(newReview); // Add to the top
+    form.reset();
+    alert("Review submitted successfully!");
+    displayReviews(1);
+  });
+}
+
+// Initialize everything
+fetchReviews();
+setupSearch();
+setupSort();
+setupFormValidation();
