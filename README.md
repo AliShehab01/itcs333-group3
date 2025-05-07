@@ -1,4 +1,7 @@
 # itcs333-group3
+We're using Bootstrap for styling and PHP with MySQL for the backend, all running on Replit.
+
+
 <table>
 <thead>
 <tr>
@@ -10,7 +13,7 @@
 </tr>
 </thead>
 <tr>
-<td>Ali Abdulbaqi</td>
+<td>Ali Abdulbaqi Mansoor Shehab</td>
 <td>AliShehab01</td>
 <td>202207619</td>
 <td>Study Group Finder</td>
@@ -44,4 +47,3 @@
 <tbody>
 </tbody>
 </table>
-We use Bootstrap as a CSS framework, The code of main page is inside (module2) branch in a folder named (mainPage)
