@@ -137,6 +137,75 @@
         });
     </script>
     <script src="news.js"></script>
+<script>
+// Fetch and display news articles
+function loadNews() {
+    fetch('CampusNews/api/get_news.php')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = '<p>No news available.</p>';
+                return;
+            }
+
+            data.forEach(news => {
+                const card = document.createElement('div');
+                card.className = 'card mb-3';
+                card.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">${news.title}</h5>
+                        <p class="card-text">${news.body}</p>
+                        <p class="card-text"><small class="text-muted">Posted on ${news.created_at}</small></p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        })
+        .catch(err => {
+            console.error('Error loading news:', err);
+        });
+}
+
+// Submit news
+function submitNews(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('news-title').value.trim();
+    const body = document.getElementById('news-body').value.trim();
+
+    if (!title || !body) {
+        alert('Please fill in both title and body.');
+        return;
+    }
+
+    fetch('CampusNews/api/add_news.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title, body })
+    })
+    .then(response => response.json())
+    .then(result => {
+        alert(result.message);
+        document.getElementById('news-form').reset();
+        loadNews();
+    })
+    .catch(err => {
+        console.error('Error submitting news:', err);
+        alert('Something went wrong.');
+    });
+}
+
+// Call loadNews when the page loads
+document.addEventListener('DOMContentLoaded', loadNews);
+
+// Attach submit handler
+document.getElementById('news-form').addEventListener('submit', submitNews);
+</script>
 </body>
 
 </html>
