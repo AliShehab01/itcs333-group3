@@ -43,6 +43,25 @@
                 <p class="lead">Stay updated with the latest happenings at the University of Bahrain!</p>
             </div>
         </section>
+<div class="container mt-4">
+  <div class="row g-2">
+    <div class="col-md-6">
+      <input type="text" id="searchInput" class="form-control" placeholder="Search by title">
+    </div>
+    <div class="col-md-4">
+      <select id="categoryFilter" class="form-select">
+        <option value="">All Categories</option>
+        <option value="Events">Events</option>
+        <option value="Clubs">Clubs</option>
+        <option value="Academics">Academics</option>
+        <!-- Add your categories -->
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button onclick="loadNews()" class="btn btn-primary w-100">Filter</button>
+    </div>
+  </div>
+</div>
 
         <!-- News Section -->
         <section class="container mt-5">
@@ -97,6 +116,7 @@
             </div>
         </div>
     </footer>
+    <div id="newsContainer" class="container mt-4"></div>
 
     <!-- News JavaScript -->
     <script>
@@ -205,6 +225,33 @@ document.addEventListener('DOMContentLoaded', loadNews);
 
 // Attach submit handler
 document.getElementById('news-form').addEventListener('submit', submitNews);
+</script>
+<script>
+function loadNews() {
+  const search = document.getElementById("searchInput").value;
+  const category = document.getElementById("categoryFilter").value;
+
+  fetch(`api/get_news.php?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}`)
+    .then(response => response.json())
+    .then(data => {
+      const newsContainer = document.getElementById("newsContainer");
+      newsContainer.innerHTML = "";
+      data.forEach(news => {
+        newsContainer.innerHTML += `
+          <div class="card my-3">
+            <img src="${news.image_url}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${news.title}</h5>
+              <p class="card-text">${news.summary}</p>
+              <a href="news_details.html?id=${news.id}" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        `;
+      });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadNews);
 </script>
 </body>
 
