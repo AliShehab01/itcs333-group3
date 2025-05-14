@@ -36,13 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    searchInput.addEventListener('input', debounce(() => {
-        loadNews(searchInput.value, categoryFilter.value);
-    }, 300));
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(() => {
+            loadNews(searchInput.value, categoryFilter ? categoryFilter.value : '');
+        }, 300));
+    }
 
-    categoryFilter.addEventListener('change', () => {
-        loadNews(searchInput.value, categoryFilter.value);
-    });
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', () => {
+            loadNews(searchInput ? searchInput.value : '', categoryFilter.value);
+        });
+    }
 
     function debounce(func, wait) {
         let timeout;
