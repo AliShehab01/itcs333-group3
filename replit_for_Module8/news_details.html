@@ -54,7 +54,7 @@
         if (!newsId) {
             document.getElementById("newsDetails").innerHTML = '<div class="alert alert-danger">News article not found.</div>';
         } else {
-            fetch(`api/get_news_by_id.php?id=${newsId}`)
+            fetch(`/replit_for_Module8/api/get_news_by_id.php?id=${newsId}`)
                 .then(res => res.json())
                 .then(data => {
                     const div = document.getElementById("newsDetails");
@@ -70,7 +70,7 @@
                 });
 
             function loadComments() {
-                fetch(`api/get_comments.php?news_id=${newsId}`)
+                fetch(`/replit_for_Module8/api/get_comments.php?news_id=${newsId}`)
                     .then(res => res.json())
                     .then(data => {
                         const section = document.getElementById("commentsSection");
@@ -94,7 +94,7 @@
                 const author = document.getElementById("author").value;
                 const comment = document.getElementById("comment").value;
 
-                fetch("api/add_comment.php", {
+                fetch("/replit_for_Module8/api/add_comment.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ news_id: newsId, author, content: comment })
