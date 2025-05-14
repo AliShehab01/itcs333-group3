@@ -11,7 +11,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['status' => 'error', 'message' => 'Only POST method is allowed']);
-    exit;
+    exit; //aaaaaa
 }
 
 // Get form data
