@@ -37,11 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const categoryFilter = document.getElementById("categoryFilter");
 
-    if (searchInput) {
-        searchInput.addEventListener("input", loadNews);
+    const searchButton = document.getElementById("searchButton");
+    
+    if (searchButton) {
+        searchButton.addEventListener("click", function(e) {
+            e.preventDefault();
+            loadNews();
+        });
     }
 
     if (categoryFilter) {
-        categoryFilter.addEventListener("change", loadNews);
+        categoryFilter.addEventListener("change", function(e) {
+            if (!searchButton) {
+                loadNews();
+            }
+        });
     }
 });
