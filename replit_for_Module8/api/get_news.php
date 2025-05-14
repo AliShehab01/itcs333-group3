@@ -1,14 +1,23 @@
 <?php
-include 'config.php';
+header("Content-Type: application/json");
+include '../database/db_connection.php';
 
-$sql = "SELECT * FROM news ORDER BY created_at DESC";
-$result = $conn->query($sql);
+$search = isset($_GET['search']) ? "%" . $_GET['search'] . "%" : "%";
+$category = isset($_GET['category']) ? $_GET['category'] : null;
 
-$news = [];
+$sql = "SELECT id, title, summary, image_url, category, published_at FROM news WHERE title LIKE ?";
+$params = [$search];
 
-while ($row = $result->fetch_assoc()) {
-    $news[] = $row;
+if ($category) {
+    $sql .= " AND category = ?";
+    $params[] = $category;
 }
+
+$sql .= " ORDER BY published_at DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($params);
+$news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($news);
 ?>
