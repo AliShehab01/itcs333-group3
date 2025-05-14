@@ -6,10 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadNews(search = '', category = '') {
         fetch(`/replit_for_Module8/api/get_news.php?search=${search}&category=${category}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 newsContainer.innerHTML = '';
-                if (data.length === 0) {
+                if (!data || data.length === 0) {
                     newsContainer.innerHTML = '<p class="text-center">No news found.</p>';
                     return;
                 }
@@ -18,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     col.className = 'col-md-4 mb-4';
                     col.innerHTML = `
                         <div class="card h-100">
-                            <img src="${news.image_url || 'images/UoBcampus.jpg'}" class="card-img-top" alt="News Image">
+                            <img src="${news.image_url || '/images/UoBcampus.jpg'}" class="card-img-top" alt="News Image">
                             <div class="card-body">
                                 <h5 class="card-title">${news.title}</h5>
                                 <p class="card-text">${news.summary}</p>
-                                <a href="replit_for_Module8/news_details.html?id=${news.id}" class="btn btn-primary">Read More</a>
+                                <a href="/replit_for_Module8/news_details.html?id=${news.id}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     `;
