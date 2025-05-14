@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = '0.0.0.0';
 $db   = 'campus_news';
 $user = 'root';
 $pass = '';
@@ -13,9 +13,9 @@ $options = [
 ];
 
 try {
-    $conn = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    $conn = $pdo;
 } catch(PDOException $e) {
     die(json_encode(['error' => 'Connection failed: ' . $e->getMessage()]));
 }
 ?>
-
