@@ -1,3 +1,8 @@
+<?php
+// index.php
+session_start();
+?>  <!--added for reg/sign-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +21,7 @@
     <main>
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px;" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -26,11 +31,11 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link" href="indexModule2.php" id="cksign">Study Groups</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
                     </ul>
                 </div>
@@ -45,7 +50,6 @@
                 </p>
             </div>
         </section>
-
         <section class="container my-5">
             <div class="row">
                 <div class="col-md-8 mb-2">
@@ -72,7 +76,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Find Study Groups</h5>
                             <p class="card-text">Connect with peers in your course and improve together.</p>
-                            <a href="indexModule2.html" class="btn btn-primary">Get Started</a>
+                            <a href="indexModule2.php" class="btn btn-primary" id="cksign">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +85,7 @@
                         <div class="card-body">
                             <h5 class="card-title">News</h5>
                             <p class="card-text">Stay updated on workshops, fairs, and student activities.</p>
-                            <a href="indexModule8.html" class="btn btn-primary">View News</a>
+                            <a href="indexModule8" class="btn btn-primary">View Events</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +126,7 @@
             </a>
         </section>
 
-        <nav>
+        <nav> 
             <ul class="pagination justify-content-center">
                 <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -141,10 +145,8 @@
                 <div class="col-md-3 mb-4">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="https://www.uob.edu.bh/events/" class="text-light" target="_blank"
-                                rel="noopener noreferrer">Events</a></li>
-                        <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light" target="_blank"
-                                rel="noopener noreferrer">FAQ</a></li>
+                        <li><a href="https://www.uob.edu.bh/events/" class="text-light" target="_blank" rel="noopener noreferrer">Events</a></li>
+                        <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light" target="_blank" rel="noopener noreferrer">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4">
@@ -156,12 +158,9 @@
                 </div>
                 <div class="col-md-3 mb-4">
                     <h5>Follow</h5>
-                    <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">Instagram</a>
-                    <a href="https://x.com/uobedubh?lang=en" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">X (Twitter)</a>
-                    <a href="https://www.facebook.com/MyUOB/" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">Facebook</a>
+                    <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://x.com/uobedubh?lang=en" class="d-block text-light" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    <a href="https://www.facebook.com/MyUOB/" class="d-block text-light" target="_blank" rel="noopener noreferrer">Facebook</a>
                 </div>
             </div>
             <hr class="bg-light" />

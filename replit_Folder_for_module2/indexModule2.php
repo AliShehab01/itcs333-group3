@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +23,7 @@
     <main>
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px;" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -25,11 +33,12 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="indexModule2.php">Study Groups</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
                     </ul>
                 </div>
