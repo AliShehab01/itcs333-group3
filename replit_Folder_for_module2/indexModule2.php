@@ -1,9 +1,10 @@
-<?php
+<?php  
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
-}
+    
+} 
 ?>
 
     <!DOCTYPE html>
@@ -34,13 +35,17 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule2.php">Study Groups</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
                     </ul>
+                    <?php if (isset($_SESSION['user_id'])): ?> 
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-danger ml-2"   href="logout.php">Sign Out</a>
+                        </li>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>
