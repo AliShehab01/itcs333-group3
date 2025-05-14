@@ -1,41 +1,56 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const newsContainer = document.getElementById('newsContainer');
+function loadNews() {
+    const search = document.getElementById("searchInput")?.value || '';
+    const category = document.getElementById("categoryFilter")?.value || '';
 
-    if (!Array.isArray(newsItems)) {
-        console.error('newsItems is not defined or not an array.');
-        return;
+    fetch(`/replit_for_Module8/api/get_news.php?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}`)
+        .then(response => response.json())
+        .then(data => {
+            const newsContainer = document.getElementById("newsContainer");
+            if (!newsContainer) return;
+
+            newsContainer.innerHTML = "";
+            data.forEach(news => {
+                const col = document.createElement("div");
+                col.className = "col-md-4 mb-4";
+                col.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${news.image_url}" class="card-img-top" alt="News Image">
+                        <div class="card-body">
+                            <h5 class="card-title">${news.title}</h5>
+                            <p class="card-text">${news.summary || news.content}</p>
+                            <a href="replit_for_Module8/news_details.html?id=${news.id}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                `;
+                newsContainer.appendChild(col);
+            });
+        })
+        .catch(err => {
+            console.error("Error loading news:", err);
+        });
+}
+
+// Add event listeners
+document.addEventListener("DOMContentLoaded", () => {
+    loadNews();
+
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    const searchButton = document.getElementById("searchButton");
+    
+    if (searchButton) {
+        searchButton.addEventListener("click", function(e) {
+            e.preventDefault();
+            loadNews();
+        });
     }
 
-    newsItems.forEach(item => {
-        const col = document.createElement('div');
-        col.className = 'col-md-4 mb-4';
-
-        const card = document.createElement('div');
-        card.className = 'card h-100 shadow-sm';
-
-        if (item.image) {
-            const img = document.createElement('img');
-            img.className = 'card-img-top';
-            img.src = item.image;
-            img.alt = item.title;
-            card.appendChild(img);
-        }
-
-        const cardBody = document.createElement('div');
-        cardBody.className = 'card-body';
-
-        const title = document.createElement('h5');
-        title.className = 'card-title';
-        title.textContent = item.title;
-
-        const content = document.createElement('p');
-        content.className = 'card-text';
-        content.textContent = item.content;
-
-        cardBody.appendChild(title);
-        cardBody.appendChild(content);
-        card.appendChild(cardBody);
-        col.appendChild(card);
-        newsContainer.appendChild(col);
-    });
+    if (categoryFilter) {
+        categoryFilter.addEventListener("change", function(e) {
+            if (!searchButton) {
+                loadNews();
+            }
+        });
+    }
 });

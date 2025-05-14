@@ -1,206 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Buy and sell used textbooks at the University of Bahrain. A student-to-student marketplace for affordable course materials." />
+        <title>Campus Hub - Main Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <!--navigation bar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px;" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                            <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
+                            <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="indexModule7.html">Student Marketplace</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <section id="backgroundImg">
+                <div class="container">
+                    <h1 id="firsth1">Student Marketplace</h1>
+                    <p class="lead">Buy and sell textbooks for your courses at University of Bahrain!</p>
+                </div>
+            </section>
+            <!--Guiding header-->
+            <section class="container mt-5">
+                <div class="row align-items-start">
+                    <div class="col-md-5">
+                        <h3 class="fw-bold text-dark"><strong>Search for your course book ↓</strong></h3>
+                    </div>
+                </div>
+                <!--Search textbox-->
+                <div class="row align-items-center mt-3">
+                    <div class="col-md-7 mb-3">
+                        <input type="search" class="form-control form-control-lg" id="searchInput" placeholder="🔍 Search for textbook by subject, ex.ITCS333, Calculus,Java">
+                    </div>
+                    <!--College Filter-->
+                    <div class="col-md-3 mb-3">
+                        <select class="form-control form-control-lg" id="collegeFilter">
+                            <option selected value="">All Colleges</option>
+                            <option>College of Information Technology</option>
+                            <option>College of Applied Studies</option>
+                            <option>College of Arts</option>
+                            <option>Bahrain Teachers College</option>
+                            <option>College of Business</option>
+                            <option>College of Engineering</option>
+                            <option>College of Health and Sport Sciences</option>
+                            <option>College of Science</option>
+                            <option>College of Law</option>
+                        </select>
+                    </div>
+                    <!--Search button-->
+                    <div class="col-md-2 mb-3 d-grid">
+                        <button class="btn btn-primary btn-lg w-100" type="submit">Search</button>
+                    </div>
+                </div>
+            </section>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Buy and sell used textbooks at the University of Bahrain. A student-to-student marketplace for affordable course materials." />
-    <title>Campus Hub - Main Page</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-    <main>
-        <!--navigation bar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px;" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!--Main Header-->
-        <section id="backgroundImg">
-            <div class="container">
-                <h1 id="firsth1">Student Marketplace</h1>
-                <p class="lead">Buy and sell textbooks for your courses at University of Bahrain!</p>
-            </div>
-        </section>
-        <!--Guiding header-->
-        <section class="container mt-5">
-            <div class="row align-items-start">
-                <div class="col-md-5">
-                    <h3 class="fw-bold text-dark"><strong>Search for your course book ↓</strong></h3>
-                </div>
-            </div>
-            <!--Search textbox-->
-            <div class="row align-items-center mt-3">
-                <div class="col-md-7 mb-3">
-                    <input type="search" class="form-control form-control-lg" id="searchInput"
-                        placeholder="🔍 Search for textbook by subject, e.g.: ITCS333, Calculus,Java">
-                </div>
-                <!--College Filter-->
-                <div class="col-md-3 mb-3">
-                    <select class="form-control form-control-lg" id="collegeFilter">
-                        <option selected value="">All Colleges</option>
-                        <option>College of Information Technology</option>
-                        <option>College of Applied Studies</option>
-                        <option>College of Arts</option>
-                        <option>Bahrain Teachers College</option>
-                        <option>College of Business</option>
-                        <option>College of Engineering</option>
-                        <option>College of Health and Sport Sciences</option>
-                        <option>College of Science</option>
-                        <option>College of Law</option>
-                    </select>
-                </div>
-                <!--Search button-->
-                <div class="col-md-2 mb-3 d-grid">
-                    <button class="btn btn-primary btn-lg w-100" type="submit">Search</button>
-                </div>
-            </div>
-        </section>
-
-        <div class="text-center">
-            <hr class="mb-2">
-            <h5 class="fw-bold">Featured books</h5>
-            <hr class="mt-2">
-        </div>
-        <!--Books list-->
-        <div class="container">
-            <div class="row">
-                <!--Book1-->
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow-sm h-100">
-                        <img src="images/Calculus.jpeg" class="card-img-top" alt="Calculus textbook in good condition">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>MATHS101:</strong> Calculus Textbook</h5>
-                            <p class="card-text"><strong>11 BHD</strong> - Good condition, pickup on campus</p>
-                            <a href="tel:34567890" class="btn btn-primary">Contact Seller</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Book2-->
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow-sm h-100">
-                        <img src="images/ITCS333book.jpg" class="card-img-top" alt="Web Development textbook">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>ITCS333:</strong> Fundamentals of Web Development</h5>
-                            <p class="card-text"><strong>6 BHD</strong> - Slightly used, free delivery</p>
-                            <a href="tel:34567891" class="btn btn-primary">Contact Seller</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Book3-->
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow-sm h-100">
-                        <img src="images/Java1.jpg" class="card-img-top" alt="Java programming book">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>ITCS113/106:</strong> Java 1 book</h5>
-                            <p class="card-text"><strong>4 BHD</strong> - Used, fast delivery</p>
-                            <a href="tel:34567892" class="btn btn-primary">Contact Seller</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Book listing form-->
-            <div class="container my-5">
-                <h4 class="text-center"><strong>List your book:</strong></h4>
-                <form action="#" method="post">
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Book Title</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g. Calculus"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Price in BHD</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="e.g. 13"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="3"
-                            placeholder="Condition, pickup location, etc." required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Book Image URL</label>
-                        <input type="text" class="form-control" id="image" name="image"
-                            placeholder="Paste image link here (e.g. https://...)" required>
-                    </div>
-                    <button type="submit" class="btn btn-success" disabled>List</button>
-                </form>
-            </div>
-        </div>
-        <!--Pagination-->
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
-    </main>
-    <!--Footer-->
-    <footer class="bg-dark text-light pt-5 pb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <h5>About</h5>
-                    <p>Your go-to student platform at UOB — for everything from study groups to campus events!</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.uob.edu.bh/events/" class="text-light" target="_blank"
-                                rel="noopener noreferrer">Events</a></li>
-                        <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light" target="_blank"
-                                rel="noopener noreferrer">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h5>Contact</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="mailto:studentcc@uob.edu.bh" class="text-light">Email Us</a></li>
-                        <li><a href="tel:+17438888" class="text-light">Call Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <h5>Follow</h5>
-                    <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">Instagram</a>
-                    <a href="https://x.com/uobedubh?lang=en" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">X (Twitter)</a>
-                    <a href="https://www.facebook.com/MyUOB/" class="d-block text-light" target="_blank"
-                        rel="noopener noreferrer">Facebook</a>
-                </div>
-            </div>
-            <hr class="bg-light" />
             <div class="text-center">
-                <small>&copy; 2025 UOB Campus Hub. All rights reserved</small>
+                <hr class="mb-2">
+                <h5 class="fw-bold">Featured books</h5>
+                <hr class="mt-2">
+            </div>
+            <!--Books list-->
+            <div class="container">
+                <div class="row">
+                    <!--Book1-->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <img src="images/Calculus.jpeg" class="card-img-top" alt="Calculus textbook in good condition">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>MATHS101:</strong> Calculus Textbook</h5>
+                                <p class="card-text"><strong>11 BHD</strong> - Good condition, pickup on campus</p>
+                                <a href="tel:34567890" class="btn btn-primary">Contact Seller</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Book2-->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <img src="images/ITCS333book.jpg" class="card-img-top" alt="Web Development textbook">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>ITCS333:</strong> Fundamentals of Web Development</h5>
+                                <p class="card-text"><strong>6 BHD</strong> - Slightly used, free delivery</p>
+                                <a href="tel:34567891" class="btn btn-primary">Contact Seller</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Book3-->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <img src="images/Java1.jpg" class="card-img-top" alt="Java programming book">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>ITCS113/106:</strong> Java 1 book</h5>
+                                <p class="card-text"><strong>4 BHD</strong> - Used, fast delivery</p>
+                                <a href="tel:34567892" class="btn btn-primary">Contact Seller</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="books-list">
+                    </div>
+                </div>
+            </div>
+                <!--Book listing Button-->
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#bookModal">
+                        + List Your Book
+                    </button>
+                </div>
+                <!--Book listing form(modal)-->
+                <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <form id="BookForm">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="bookModalLabel">List Your Book</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="code">Course Code</label>
+                                <input type="text" class="form-control" id="code" placeholder="ex.ITCS333" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Book Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Web Development" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price in BHD</label>
+                                <input type="number" class="form-control" id="price" name="price" placeholder="13" required>
+                            </div>
+                            <div class="mb-2">
+                                <select id="condition" class="form-control mb-2" required>
+                                    <option value="">Select Condition</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Used">Used</option>
+                                    <option value="Like New">Like New</option>
+                                    <option value="Slightly Used">Slightly Used</option>
+                                </select>
+                            </div>    
+                            <div class="mb-2">
+                                <select id="pickup" class="form-control mb-2" required>
+                                    <option value="">Select Pickup Option</option>
+                                    <option value="pickup on campus">Pickup on campus</option>
+                                    <option value="free delivery">Free delivery</option>
+                                    <option value="fast delivery">Fast delivery</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Book Image URL</label>
+                                <input type="text" class="form-control" id="image" name="image" placeholder="Paste image link here (https://...)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="seller" class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control" id="seller" name="seller" placeholder="Please enter your number (8 digits)" required>
+                            </div>
+                            <div class="text-center mb-4">
+                                <button type="submit" class="btn btn-primary">List Book</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-</body>
-
+            
+            <!--Pagination-->
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </main>
+         <!--Footer-->
+        <footer class="bg-dark text-light pt-5 pb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <h5>About</h5>
+                        <p>Your go-to student platform at UOB — for everything from study groups to campus events!</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://www.uob.edu.bh/events/" class="text-light" target="_blank" rel="noopener noreferrer">Events</a></li>
+                            <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light" target="_blank" rel="noopener noreferrer">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Contact</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="mailto:studentcc@uob.edu.bh" class="text-light">Email Us</a></li>
+                            <li><a href="tel:+17438888" class="text-light">Call Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h5>Follow</h5>
+                        <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/uobedubh?lang=en" class="d-block text-light" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                        <a href="https://www.facebook.com/MyUOB/" class="d-block text-light" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    </div>
+                </div>
+                <hr class="bg-light" />
+                <div class="text-center">
+                    <small>&copy; 2025 UOB Campus Hub. All rights reserved</small>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script7.js" defer></script>
+    </body>
 </html>
