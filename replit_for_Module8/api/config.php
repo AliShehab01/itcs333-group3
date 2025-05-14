@@ -1,14 +1,16 @@
 <?php
-$host = 'localhost'; // Or your actual DB host
+$host = 'localhost';
 $db   = 'campus_news';
-$user = 'root';      // Use your actual username
-$pass = '';          // Use your actual password
+$user = 'root';
+$pass = '';
 
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die(json_encode(['error' => 'Connection failed: ' . $conn->connect_error]));
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die(json_encode(['error' => 'Connection failed: ' . $e->getMessage()]));
 }
 
 header("Content-Type: application/json");
 ?>
+
