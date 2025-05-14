@@ -1,14 +1,22 @@
 <?php
 header("Content-Type: application/json");
-include '../database/db_connection.php';
+header("Access-Control-Allow-Origin: *");
+
+include 'config.php';
 
 $news_id = $_GET['news_id'] ?? null;
+
 if (!$news_id) {
     echo json_encode([]);
     exit;
 }
 
-$stmt = $conn->prepare("SELECT author, content FROM comments WHERE news_id = ? ORDER BY created_at DESC");
-$stmt->execute([$news_id]);
-echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+try {
+    $stmt = $conn->prepare("SELECT id, author, content, created_at FROM comments WHERE news_id = ? ORDER BY created_at DESC");
+    $stmt->execute([$news_id]);
+    $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($comments);
+} catch (PDOException $e) {
+    echo json_encode(["error" => $e->getMessage()]);
+}
 ?>
