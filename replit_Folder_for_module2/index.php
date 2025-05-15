@@ -1,5 +1,4 @@
 <?php
-// index.php
 session_start();
 ?>  <!--added for reg/sign-->
 
@@ -38,6 +37,11 @@ session_start();
                         <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
                         <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
                     </ul>
+                    <?php if (isset($_SESSION['user_id'])): ?> 
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-danger ml-2"   href="logout.php">Sign Out</a>
+                        </li>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>

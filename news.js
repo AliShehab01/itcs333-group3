@@ -1,41 +1,68 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const newsContainer = document.getElementById('newsContainer');
+news.js:
 
-    if (!Array.isArray(newsItems)) {
-        console.error('newsItems is not defined or not an array.');
-        return;
-    }
+function loadNews() {
+const search = document.getElementById("searchInput")?.value || '';
+const category = document.getElementById("categoryFilter")?.value || '';
+const newsContainer = document.getElementById("newsContainer");
 
-    newsItems.forEach(item => {
-        const col = document.createElement('div');
-        col.className = 'col-md-4 mb-4';
+if (!newsContainer) return;
 
-        const card = document.createElement('div');
-        card.className = 'card h-100 shadow-sm';
+fetch(`/replit_for_Module8/api/get_news.php?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}`)
+.then(response => response.json())
+.then(data => {
+newsContainer.innerHTML = "";
 
-        if (item.image) {
-            const img = document.createElement('img');
-            img.className = 'card-img-top';
-            img.src = item.image;
-            img.alt = item.title;
-            card.appendChild(img);
-        }
+if (data.length === 0) {
+newsContainer.innerHTML = '<div class="col-12 text-center"><h3>No news found</h3></div>';
+return;
+}
 
-        const cardBody = document.createElement('div');
-        cardBody.className = 'card-body';
+data.forEach(news => {
+const col = document.createElement("div");
+col.className = "col-md-4 mb-4";
+col.innerHTML = `
+<div class="card h-100 shadow">
+<img src="${news.image_url || '/replit_for_Module8/s40image.jpg'}" class="card-img-top" alt="News Image" style="height: 200px; object-fit: cover;">
+<div class="card-body">
+<h5 class="card-title">${news.title}</h5>
+<p class="card-text">${news.summary || news.content}</p>
+<a href="/replit_for_Module8/news_details.html?id=${news.id}" class="btn btn-primary mt-auto">Read More</a>
+</div>
+</div>
+`;
+newsContainer.appendChild(col);
+});
+})
+.catch(err => {
+console.error("Error loading news:", err);
+newsContainer.innerHTML = '<div class="col-12 text-center"><h3>Error loading news</h3></div>';
+});
+}
 
-        const title = document.createElement('h5');
-        title.className = 'card-title';
-        title.textContent = item.title;
+document.addEventListener("DOMContentLoaded", () => {
+loadNews();
 
-        const content = document.createElement('p');
-        content.className = 'card-text';
-        content.textContent = item.content;
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
 
-        cardBody.appendChild(title);
-        cardBody.appendChild(content);
-        card.appendChild(cardBody);
-        col.appendChild(card);
-        newsContainer.appendChild(col);
-    });
+if (searchButton) {
+searchButton.addEventListener("click", (e) => {
+e.preventDefault();
+loadNews();
+});
+}
+
+if (searchInput) {
+searchInput.addEventListener("keypress", (e) => {
+if (e.key === "Enter") {
+e.preventDefault();
+loadNews();
+}
+});
+}
+
+if (categoryFilter) {
+categoryFilter.addEventListener("change", () => loadNews());
+}
 });

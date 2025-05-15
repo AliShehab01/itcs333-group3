@@ -146,13 +146,10 @@ function renderFiltered(results) {
   renderGroups(1);
 }
 
-// ——————————————
+
 // Form Submission
-// ——————————————
-/**
- * Handle the “Add Group” form post.
- * @param {Event} e 
- */
+// Handle the “Add Group” form post.
+
 async function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
