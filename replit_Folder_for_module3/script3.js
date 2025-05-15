@@ -1,17 +1,22 @@
 let reviews = [];
 let filteredReviews = [];
+let currentPage = 1;
+const pageSize = 6;
 
-async function fetchReviews() {
+async function fetchReviews(page = 1) {
   const reviewsContainer = document.querySelector(".reviews-list");
   reviewsContainer.innerHTML = '<div class="text-center w-100">Loading reviews...</div>';
+  const offset = (page - 1) * pageSize;
 
   try {
-    const response = await fetch("api/getReview.php");
+    const response = await fetch(`api/getReview.php?limit=${pageSize}&offset=${offset}`);
     if (!response.ok) throw new Error("Network response was not ok");
 
     reviews = await response.json();
     filteredReviews = [...reviews];
     displayReviews();
+    renderPagination(page);
+    currentPage = page;
   } catch (error) {
     console.error("Fetching reviews failed:", error);
     reviewsContainer.innerHTML = '<div class="text-danger w-100">Failed to load reviews. Please try again later.</div>';
@@ -48,7 +53,6 @@ function displayReviews() {
     reviewsContainer.appendChild(reviewCard);
   });
 
-  // Enable delete buttons
   document.querySelectorAll(".delete-btn").forEach(button => {
     button.addEventListener("click", async () => {
       const id = button.getAttribute("data-id");
@@ -57,16 +61,15 @@ function displayReviews() {
           const response = await fetch("api/deleteReview.php", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: id })
+            body: JSON.stringify({ id })
           });
-
           const result = await response.json();
           if (response.ok) {
             reviews = reviews.filter(r => r.id != id);
             filteredReviews = filteredReviews.filter(r => r.id != id);
             displayReviews();
           } else {
-            alert("Failed to delete review: " + result.error);
+            alert("Failed to delete: " + result.error);
           }
         } catch (error) {
           console.error("Delete error:", error);
@@ -93,6 +96,31 @@ function handleSearchAndSort() {
   }
 
   displayReviews();
+}
+
+function renderPagination(current) {
+  const paginationContainer = document.querySelector(".pagination");
+  paginationContainer.innerHTML = '';
+
+  const prev = document.createElement("li");
+  prev.className = `page-item ${current === 1 ? 'disabled' : ''}`;
+  prev.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+  prev.onclick = () => fetchReviews(current - 1);
+  paginationContainer.appendChild(prev);
+
+  for (let i = 1; i <= 5; i++) {
+    const page = document.createElement("li");
+    page.className = `page-item ${current === i ? 'active' : ''}`;
+    page.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+    page.onclick = () => fetchReviews(i);
+    paginationContainer.appendChild(page);
+  }
+
+  const next = document.createElement("li");
+  next.className = `page-item`;
+  next.innerHTML = `<a class="page-link" href="#">Next</a>`;
+  next.onclick = () => fetchReviews(current + 1);
+  paginationContainer.appendChild(next);
 }
 
 async function handleFormSubmit(e) {
