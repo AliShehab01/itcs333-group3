@@ -7,7 +7,7 @@ class Database {
     private $password = 'h1234567';
     private $conn;
 
-    public function connect() {
+    public function getConnection() {
         $this->conn = null;
 
         try {

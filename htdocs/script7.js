@@ -5,7 +5,7 @@ const BooksPerPage = 6;
 function loadBooks() {
     const BooksContainer = document.getElementById("books-list");
     BooksContainer.innerHTML = '<div class="text-center w-100">Loading Books...</div>';
-  
+
     fetch("API/listings/booksRead.php")
       .then(res => res.json())
       .then(data => {
@@ -186,7 +186,7 @@ function generateRandomCode() {
     }  
     return code;
 }
-  
+
 // Form validation
 function setupFormValidation() {
   const form = document.getElementById("BookForm");
@@ -256,7 +256,7 @@ function setupFormValidation() {
       });
   });
 }
- 
+
 
 // Initialization
 document.addEventListener('DOMContentLoaded', function () {
