@@ -8,10 +8,11 @@ CREATE TABLE users (
 
 CREATE TABLE listings (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  title VARCHAR(100) NOT NULL,
-  description TEXT NOT NULL,
-  price DECIMAL(10,2) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  code VARCHAR(10),
+  title VARCHAR(255),
+  price DECIMAL(10,2),
+  condition VARCHAR(50),
+  pickup VARCHAR(100),
+  seller VARCHAR(15),
+  image VARCHAR(255)
 );
