@@ -11,7 +11,7 @@ CREATE TABLE listings (
   code VARCHAR(10),
   title VARCHAR(255),
   price DECIMAL(10,2),
-  condition VARCHAR(50),
+  book_condition VARCHAR(50),
   pickup VARCHAR(100),
   seller VARCHAR(15),
   image VARCHAR(255)
