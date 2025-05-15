@@ -199,7 +199,7 @@ function setupFormValidation() {
     const price = parseFloat(document.getElementById("price").value.trim());
     const seller = document.getElementById("seller").value.trim();
     const image = document.getElementById("image").value.trim();
-    const condition = document.getElementById("condition").value;
+    const book_condition = document.getElementById("book_condition").value;
     const pickup = document.getElementById("pickup").value;
 
     const codeRegex = /^[A-Z]{4}\d{3}$/;
@@ -230,8 +230,8 @@ function setupFormValidation() {
     formData.append('code', code);
     formData.append('title', title);
     formData.append('price', price);
-    formData.append('book_condition', document.getElementById('book_condition').value);
-    formData.append('pickup', document.getElementById('pickup').value);
+    formData.append('book_condition', book_condition);
+    formData.append('pickup', pickup);
     formData.append('seller', seller);
     formData.append('image', image);
 
