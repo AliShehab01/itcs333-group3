@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         !empty($_POST['seller']) &&
         !empty($_POST['image'])
     ) {
-        $query = "INSERT INTO listings (code, title, price, `condition`, pickup, seller, image) 
+        $query = "INSERT INTO listings (code, title, price, book_condition, pickup, seller, image) 
                   VALUES (:code, :title, :price, :book_condition, :pickup, :seller, :image)";
 
         $stmt = $db->prepare($query);
