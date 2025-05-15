@@ -230,8 +230,8 @@ function setupFormValidation() {
     formData.append('code', code);
     formData.append('title', title);
     formData.append('price', price);
-    formData.append('condition', condition);
-    formData.append('pickup', pickup);
+    formData.append('book_condition', document.getElementById('book_condition').value);
+    formData.append('pickup', document.getElementById('pickup').value);
     formData.append('seller', seller);
     formData.append('image', image);
 
