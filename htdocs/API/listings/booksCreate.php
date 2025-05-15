@@ -28,10 +28,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(":seller", $_POST['seller']);
         $stmt->bindParam(":image", $_POST['image']);
 
-        if ($stmt->execute()) {
-            echo json_encode(["status" => "success", "message" => "Book was created successfully."]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Unable to create book."]);
+        try {
+            if ($stmt->execute()) {
+                echo json_encode(["status" => "success", "message" => "Book was created successfully."]);
+            } else {
+                $error = $stmt->errorInfo();
+                error_log("Database error: " . print_r($error, true));
+                echo json_encode(["status" => "error", "message" => "Unable to create book: " . $error[2]]);
+            }
+        } catch (PDOException $e) {
+            error_log("PDO error: " . $e->getMessage());
+            echo json_encode(["status" => "error", "message" => "Database error occurred"]);
         }
     } else {
         echo json_encode(["status" => "error", "message" => "Incomplete data provided."]);
