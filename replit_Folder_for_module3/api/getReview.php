@@ -1,7 +1,6 @@
 <?php
 require_once '../config.php';
 
-// Handle only GET requests
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
@@ -9,20 +8,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 try {
-    $sql = "SELECT * FROM course_reviews ORDER BY created_at DESC";
-    $stmt = null;
+    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 6;
+    $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
+
+    $sql = "SELECT * FROM course_reviews";
+    $params = [];
 
     if (isset($_GET['course'])) {
-        $sql = "SELECT * FROM course_reviews WHERE courseName LIKE :course ORDER BY created_at DESC";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':course', '%' . $_GET['course'] . '%', PDO::PARAM_STR);
-    } else if (isset($_GET['professor'])) {
-        $sql = "SELECT * FROM course_reviews WHERE professorName LIKE :professor ORDER BY created_at DESC";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':professor', '%' . $_GET['professor'] . '%', PDO::PARAM_STR);
-    } else {
-        $stmt = $conn->prepare($sql);
+        $sql .= " WHERE courseName LIKE :course";
+        $params[':course'] = '%' . $_GET['course'] . '%';
+    } elseif (isset($_GET['professor'])) {
+        $sql .= " WHERE professorName LIKE :professor";
+        $params[':professor'] = '%' . $_GET['professor'] . '%';
     }
+
+    $sql .= " ORDER BY created_at DESC LIMIT :limit OFFSET :offset";
+
+    $stmt = $conn->prepare($sql);
+    foreach ($params as $key => $value) {
+        $stmt->bindValue($key, $value);
+    }
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 
     $stmt->execute();
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
