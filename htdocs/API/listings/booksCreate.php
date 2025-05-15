@@ -3,7 +3,7 @@ require_once '../../Config/database.php';
 
 header("Content-Type: application/json");
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->connect();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
