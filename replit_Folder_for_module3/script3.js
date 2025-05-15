@@ -40,11 +40,40 @@ function displayReviews() {
           <span class="badge badge-secondary mb-2">${review.semester}</span>
           <div class="d-flex justify-content-between align-items-center mt-3">
             <small class="text-muted">Submitted: ${review.created_at || new Date().toLocaleDateString()}</small>
+            <button class="btn btn-sm btn-danger delete-btn" data-id="${review.id}">Delete</button>
           </div>
         </div>
       </div>
     `;
     reviewsContainer.appendChild(reviewCard);
+  });
+
+  // Enable delete buttons
+  document.querySelectorAll(".delete-btn").forEach(button => {
+    button.addEventListener("click", async () => {
+      const id = button.getAttribute("data-id");
+      if (confirm("Are you sure you want to delete this review?")) {
+        try {
+          const response = await fetch("api/deleteReview.php", {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: id })
+          });
+
+          const result = await response.json();
+          if (response.ok) {
+            reviews = reviews.filter(r => r.id != id);
+            filteredReviews = filteredReviews.filter(r => r.id != id);
+            displayReviews();
+          } else {
+            alert("Failed to delete review: " + result.error);
+          }
+        } catch (error) {
+          console.error("Delete error:", error);
+          alert("Error deleting review.");
+        }
+      }
+    });
   });
 }
 
