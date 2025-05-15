@@ -90,60 +90,26 @@
     <!-- Display Reviews Section -->
     <section class="container mt-5">
       <h4 class="mb-4">Recent Reviews</h4>
-      <div class="row">
-        <!-- Review Card 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title">ITCS333 - Web Development</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Professor: Dr. John Doe</h6>
-              <p class="card-text">Great course, very interactive, and challenging at the same time. Highly recommend!
-              </p>
-              <span class="badge badge-primary mb-2">Rating: 5</span>
-              <span class="badge badge-secondary mb-2">Fall 2024</span>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-muted">Submitted: Apr 10, 2025</small>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Review Card 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title">MATH101 - Calculus I</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Professor: Dr. Jane Smith</h6>
-              <p class="card-text">Challenging but rewarding. Great for building strong foundational math skills.</p>
-              <span class="badge badge-primary mb-2">Rating: 4</span>
-              <span class="badge badge-secondary mb-2">Spring 2025</span>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-muted">Submitted: Mar 25, 2025</small>
-              </div>
-            </div>
-          </div>
+      <!-- 🔍 Search and Sort Controls -->
+      <div class="form-row mb-4">
+        <div class="col-md-6">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search by course or professor" />
         </div>
-
-        <!-- Review Card 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title">MGMT202 - Principles of Management</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Professor: Dr. Alan Brown</h6>
-              <p class="card-text">The course was interesting, but the workload was a bit heavy. Overall, a good
-                experience.</p>
-              <span class="badge badge-primary mb-2">Rating: 3</span>
-              <span class="badge badge-secondary mb-2">Spring 2025</span>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-muted">Submitted: Apr 5, 2025</small>
-              </div>
-            </div>
-          </div>
+        <div class="col-md-6">
+          <select id="sortSelect" class="form-control">
+            <option value="">Sort by rating</option>
+            <option value="high">Highest to Lowest</option>
+            <option value="low">Lowest to Highest</option>
+          </select>
         </div>
       </div>
+
+      <!-- Review Cards -->
+      <div class="row reviews-list"></div>
     </section>
 
-    <!-- Pagination -->
+    <!-- Pagination (Static for now) -->
     <nav>
       <ul class="pagination justify-content-center">
         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
