@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Hub - Course Reviews</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="Campus Hub Logo" style="height: 50px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="indexModule2.html">Study Groups</a></li>
+            <li class="nav-item"><a class="nav-link" href="indexModule3.html">Course Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="indexModule5.html">Notes</a></li>
+            <li class="nav-item"><a class="nav-link" href="indexModule8.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="indexModule7.html">Student Marketplace</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="backgroundImg">
+      <div class="container">
+        <h1 id="firsth1">Course Reviews</h1>
+        <p class="lead">
+          Read reviews from fellow students to help you choose the best courses, and share your own experiences!
+        </p>
+      </div>
+    </section>
+
+    <!-- Review Submission Form -->
+    <section class="container mt-5">
+      <h3 class="mb-3">Submit a Course Review</h3>
+      <form id="reviewForm">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="courseName">Course Name</label>
+            <input required type="text" class="form-control" id="courseName"
+              placeholder="e.g., ITCS333 - Web Development" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="professorName">Professor Name</label>
+            <input required type="text" class="form-control" id="professorName" placeholder="e.g., Dr. John Doe" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="rating">Rating</label>
+            <select required class="form-control" id="rating">
+              <option value="">Choose Rating</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="semester">Semester</label>
+            <input required type="text" class="form-control" id="semester" placeholder="e.g., Fall 2024" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reviewText">Review</label>
+          <textarea required class="form-control" id="reviewText" rows="3"
+            placeholder="Write your review here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </section>
+
+    <!-- Display Reviews Section -->
+    <section class="container mt-5">
+      <h4 class="mb-4">Recent Reviews</h4>
+
+      <!-- 🔍 Search and Sort Controls -->
+      <div class="form-row mb-4">
+        <div class="col-md-6">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search by course or professor" />
+        </div>
+        <div class="col-md-6">
+          <select id="sortSelect" class="form-control">
+            <option value="">Sort by rating</option>
+            <option value="high">Highest to Lowest</option>
+            <option value="low">Lowest to Highest</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Review Cards -->
+      <div class="row reviews-list"></div>
+    </section>
+
+    <!-- Pagination (Static for now) -->
+    <nav>
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <h5>About</h5>
+          <p>Your go-to student platform at UOB — for everything from study groups to campus events!</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.uob.edu.bh/events/" class="text-light" target="_blank"
+                rel="noopener noreferrer">Events</a></li>
+            <li><a href="https://www.uob.edu.bh/faq-items/" class="text-light" target="_blank"
+                rel="noopener noreferrer">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Contact</h5>
+          <ul class="list-unstyled">
+            <li><a href="mailto:studentcc@uob.edu.bh" class="text-light">Email Us</a></li>
+            <li><a href="tel:+17438888" class="text-light">Call Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Follow</h5>
+          <a href="https://www.instagram.com/uobedubh/?hl=en" class="d-block text-light" target="_blank"
+            rel="noopener noreferrer">Instagram</a>
+          <a href="https://x.com/uobedubh?lang=en" class="d-block text-light" target="_blank"
+            rel="noopener noreferrer">X (Twitter)</a>
+          <a href="https://www.facebook.com/MyUOB/" class="d-block text-light" target="_blank"
+            rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+      <hr class="bg-light" />
+      <div class="text-center">
+        <small>&copy; 2025 UOB Campus Hub. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+  <script src="script3.js" defer></script>
+</body>
+
+</html>

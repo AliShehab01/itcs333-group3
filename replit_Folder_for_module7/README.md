@@ -47,4 +47,3 @@ We're using Bootstrap for styling and PHP with MySQL for the backend, all runnin
 <tbody>
 </tbody>
 </table>
->>>>>>> origin/main
