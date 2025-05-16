@@ -46,11 +46,6 @@
                         <h3 class="fw-bold text-dark"><strong>Search for your course book ↓</strong></h3>
                     </div>
                 </div>
-                <!--Search textbox-->
-                <div class="row align-items-center mt-3">
-                    <div class="col-md-7 mb-3">
-                        <input type="search" class="form-control form-control-lg" id="searchInput" placeholder="🔍 Search for textbook by subject, ex.ITCS333, Calculus,Java">
-                    </div>
                     <!--College Filter-->
                     <div class="col-md-3 mb-3">
                         <select class="form-control form-control-lg" id="collegeFilter">
@@ -179,7 +174,29 @@
                 </div>
             </div>
         </div>
-            
+
+            <!--Book details view modal & comments section-->
+            <div id="bookDetailsModal" class="modal hidden">
+                  <div class="modal-content">
+                    <span class="close-button" id="closeModal">&times;</span>
+                    <div id="bookDetails"></div>
+
+                    <h3>Comments</h3>
+                    <ul id="commentList"></ul>
+                    <form id="commentForm">
+                      <input type="text" id="commentInput" placeholder="Add a comment..." required />
+                      <button type="submit">Post Comment</button>
+                    </form>
+                  </div>
+            </div>
+
+            <style>
+                .modal.hidden { display:                 none; }
+                .modal { position: fixed;               top: 10%; left: 10%; width:             80%; background: #fff;                  padding: 20px; border: 1px              solid #ccc; z-index: 999; }
+                .modal-content { position:              relative; }
+                .close-button { position:               absolute; top: 5px; right:              10px; cursor: pointer; }
+            </style>
+
             <!--Pagination-->
             <nav>
                 <ul class="pagination justify-content-center">
@@ -192,6 +209,8 @@
                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
             </nav>
+        </div>
+
         </main>
          <!--Footer-->
         <footer class="bg-dark text-light pt-5 pb-3">

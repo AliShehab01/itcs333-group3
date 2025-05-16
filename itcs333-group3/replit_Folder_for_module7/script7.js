@@ -69,6 +69,7 @@ function displayBooks(page = 1) {
                 <p class="card-text"><strong>${book.price} BHD</strong> - ${book.condition}, ${book.pickup}</p>
                 <a href="tel:${book.seller}" class="btn btn-primary">Contact Seller</a>
                 <button class="btn btn-danger btn-sm mt-2" onclick="deleteBook(${book.id})">Delete</button>
+<button onclick="openDetails(${book.id})">View Details</button>
             </div>
         </div>
     `;
@@ -256,8 +257,53 @@ function setupFormValidation() {
       });
   });
 }
- 
+window.openDetails = (bookId) => {
+  const book = allBooks.find(b => b.id === bookId);
+  const modal = document.getElementById("bookDetailsModal");
+  const detailsDiv = document.getElementById("bookDetails");
+  const commentList = document.getElementById("commentList");
 
+  if (!book) return;
+
+  detailsDiv.innerHTML = `
+    <h2>${book.title}</h2>
+    <p><strong>Course:</strong> ${book.code}</p>
+    <p><strong>Price:</strong> $${book.price}</p>
+    <p><strong>Condition:</strong> ${book.condition}</p>
+    <p><strong>Pickup:</strong> ${book.pickup}</p>
+    <p><strong>Seller:</strong> ${book.seller}</p>
+    <img src="${book.image}" width="150" />
+  `;
+
+  // Load comments from localStorage or backend
+  const comments = JSON.parse(localStorage.getItem(`comments_${bookId}`)) || [];
+  commentList.innerHTML = comments.map(c => `<li>${c}</li>`).join("");
+
+  modal.classList.remove("hidden");
+  modal.setAttribute("data-book-id", bookId);
+};
+
+document.getElementById("closeModal").addEventListener("click", () => {
+  document.getElementById("bookDetailsModal").classList.add("hidden");
+});
+
+// Handle comment form
+document.getElementById("commentForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const bookId = document.getElementById("bookDetailsModal").getAttribute("data-book-id");
+  const input = document.getElementById("commentInput");
+  const comment = input.value.trim();
+
+  if (comment) {
+    const key = `comments_${bookId}`;
+    const comments = JSON.parse(localStorage.getItem(key)) || [];
+    comments.push(comment);
+    localStorage.setItem(key, JSON.stringify(comments));
+
+    document.getElementById("commentList").innerHTML += `<li>${comment}</li>`;
+    input.value = "";
+  }
+});
 // Initialization
 document.addEventListener('DOMContentLoaded', function () {
   loadBooks();
